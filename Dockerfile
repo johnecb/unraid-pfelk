@@ -1,5 +1,5 @@
 # Dockerfile for ELK stack
-# Elasticsearch, Logstash, Kibana OSS 7.9.2
+# Elasticsearch, Logstash, Kibana OSS 7.10.0
 
 # Run with:
 # /usr/local/emhttp/plugins/dynamix.docker.manager/scripts/docker create --name='pfELK' --net='bridge' --privileged=false -e TZ="Europe/London" -e HOST_OS="Unraid" -e 'MAX_OPEN_FILES'='65536' -p '5601:5601/tcp' -p '9200:9200/tcp' -p '5044:5044/tcp' -p '5140:5140/udp' -p '5141:5141/tcp' -p '5145:5145/udp' -v '/mnt/user/appdata/unraid-pfelk/conf.d/':'/etc/logstash/conf.d':'rw' -v '/mnt/user/appdata/maxmind/database':'/usr/share/GeoIP/':'rw' 'noodlemctwoodle/unraid-pfelk'
@@ -28,7 +28,7 @@ RUN set -x \
 
 ### set current package version
 
-ARG ELK_VERSION=oss-7.9.2
+ARG ELK_VERSION=oss-7.10.0
 
 # replace with aarch64 for ARM64 systems
 ARG ARCH=x86_64 
