@@ -1,6 +1,8 @@
 # UnRAID - pfELK Docker Container
 
-**Version** 0.0.1 Alhpa
+**Version** 0.0.1 Alpha
+
+Forked to try to make it work in a vanille docker environment.
 
 This project is a Frankenstein of open source projects, the config of [pfelk](https://github.com/3ilson/pfelk) and the container of [sebp/elk](https://hub.docker.com/r/sebp/elk/) with a few modifications to pull in the pfELK configuration files. I've not built a public container before so please bare with me.
 
