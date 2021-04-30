@@ -19,7 +19,7 @@ ENV \
 
 RUN set -x \
  && apt update -qq \
- && apt install -qqy --no-install-recommends ca-certificates curl gosu tzdata openjdk-11-jdk-headless wget\
+ && apt install -qqy --no-install-recommends ca-certificates curl gosu tzdata openjdk-11-jdk-headless wget \
  && apt clean \
  && rm -rf /var/lib/apt/lists/* \
  && gosu nobody true \
