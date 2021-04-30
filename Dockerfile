@@ -19,7 +19,7 @@ ENV \
 
 RUN set -x \
  && apt update -qq \
- && apt install -qqy --no-install-recommends ca-certificates curl gosu tzdata openjdk-11-jdk-headless \
+ && apt install -qqy --no-install-recommends ca-certificates curl gosu tzdata openjdk-11-jdk-headless wget\
  && apt clean \
  && rm -rf /var/lib/apt/lists/* \
  && gosu nobody true \
@@ -28,7 +28,7 @@ RUN set -x \
 
 ### set current package version
 
-ARG ELK_VERSION=oss-7.10.0
+ARG ELK_VERSION=oss-7.12.0
 
 # replace with aarch64 for ARM64 systems
 ARG ARCH=x86_64 
@@ -179,6 +179,16 @@ RUN chmod 644 /etc/logrotate.d/elasticsearch \
 ### configure Kibana
 
 ADD ./kibana.yml ${KIBANA_HOME}/config/kibana.yml
+
+### add in templates and dashboards
+
+RUN wget https://raw.githubusercontent.com/pfelk/pfelk/main/etc/pfelk/scripts/pfelk-template-installer.sh \
+ && sudo chmod +x pfelk-template-installer.sh \
+ && sudo ./pfelk-template-installer.sh
+ 
+RUN wget https://raw.githubusercontent.com/pfelk/pfelk/main/etc/pfelk/scripts/pfelk-dashboard-installer.sh \
+ && sudo chmod +x pfelk-dashboard-installer.sh
+ && sudo ./pfelk-dashboard-installer.sh
 
 
 ###############################################################################
