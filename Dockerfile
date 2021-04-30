@@ -187,8 +187,8 @@ RUN wget https://raw.githubusercontent.com/pfelk/pfelk/main/etc/pfelk/scripts/pf
  && sudo ./pfelk-template-installer.sh
  
 RUN wget https://raw.githubusercontent.com/pfelk/pfelk/main/etc/pfelk/scripts/pfelk-dashboard-installer.sh \
- && sudo chmod +x pfelk-dashboard-installer.sh
- && sudo ./pfelk-dashboard-installer.sh
+ && sudo chmod +x pfelk-dashboard-installer.sh \
+ && sudo ./pfelk-dashboard-installer.sh \
 
 
 ###############################################################################
