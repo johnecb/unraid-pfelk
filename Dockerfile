@@ -28,7 +28,7 @@ RUN set -x \
 
 ### set current package version
 
-ARG ELK_VERSION=oss-7.12.0
+ARG ELK_VERSION=oss-7.12.1
 
 
 # replace with aarch64 for ARM64 systems
