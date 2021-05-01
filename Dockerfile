@@ -30,6 +30,7 @@ RUN set -x \
 
 ARG ELK_VERSION=oss-7.12.0
 
+
 # replace with aarch64 for ARM64 systems
 ARG ARCH=x86_64 
 
