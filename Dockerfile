@@ -52,7 +52,9 @@ ENV \
 
 RUN DEBIAN_FRONTEND=noninteractive \
  && mkdir ${ES_HOME} \
- && curl -O https://artifacts.elastic.co/downloads/elasticsearch/${ES_PACKAGE} \
+ && curl -O https://artifacts.elastic.co/downloads/elasticsearch/${ES_PACKAGE} 
+ 
+RUN DEBIAN_FRONTEND=noninteractive \
  && tar xzf ${ES_PACKAGE} -C ${ES_HOME} --strip-components=1 \
  && rm -f ${ES_PACKAGE} \
  && groupadd -r elasticsearch -g ${ES_GID} \
