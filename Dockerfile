@@ -52,11 +52,11 @@ ENV \
 
 RUN DEBIAN_FRONTEND=noninteractive \
  && mkdir ${ES_HOME} \
- && curl -O https://artifacts.elastic.co/downloads/elasticsearch/${ES_PACKAGE} 
+ && curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.12.1-linux-x86_64.tar.gz
  
 RUN DEBIAN_FRONTEND=noninteractive \
- && tar xzf ${ES_PACKAGE} -C ${ES_HOME} --strip-components=1 \
- && rm -f ${ES_PACKAGE} \
+ && tar xzf elasticsearch-7.12.1-linux-x86_64.tar.gz -C ${ES_HOME} --strip-components=1 \
+ && rm -f elasticsearch-7.12.1-linux-x86_64.tar.gz \
  && groupadd -r elasticsearch -g ${ES_GID} \
  && useradd -r -s /usr/sbin/nologin -M -c "Elasticsearch service user" -u ${ES_UID} -g elasticsearch elasticsearch \
  && mkdir -p /var/log/elasticsearch ${ES_PATH_CONF} ${ES_PATH_CONF}/scripts /var/lib/elasticsearch ${ES_PATH_BACKUP} \
